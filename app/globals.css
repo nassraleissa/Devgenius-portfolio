@@ -56,17 +56,17 @@
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-gray-200;
   }
   body {
     @apply bg-background text-foreground;
-    color: rgb(var(--foreground-rgb));
+    color: rgb(var(--foreground-rgb, 0 0 0));
     background: linear-gradient(
         to bottom,
         transparent,
-        rgb(var(--background-end-rgb))
+        rgb(var(--background-end-rgb, 255 255 255))
       )
-      rgb(var(--background-start-rgb));
+      rgb(var(--background-start-rgb, 255 255 255));
     font-family: 'Tajawal', sans-serif;
     direction: rtl;
     text-align: right;
