@@ -1,12 +1,27 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ['class'],
+  mode: 'jit',
+  safelist: [
+    // Explicitly safelist classes that might be dynamically used
+    'grid', 'md:grid-cols-3', 'gap-8', 
+    'bg-gray-900', 'bg-gray-800', 
+    'text-white', 'text-gray-400', 'text-gray-500',
+    'px-4', 'py-16', 'md:py-24',
+    'container', 'mx-auto', 'text-center',
+    'max-w-6xl', 'text-3xl', 'md:text-4xl', 
+    'font-bold', 'mb-12', 'relative', 'w-full', 
+    'pt-[100%]', 'absolute', 'inset-0', 'object-cover',
+    'p-6', 'text-right', 'text-xl', 'font-semibold', 'mb-2',
+    'text-sm'
+  ],
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './src/**/*.{js,ts,jsx,tsx,mdx}',
     './app/components/**/*.{js,ts,jsx,tsx,mdx}',
+    // Explicitly list all components
     './app/components/Team.tsx',
     './app/components/Projects.tsx',
     './app/components/Features.tsx',
