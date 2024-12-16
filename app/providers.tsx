@@ -5,7 +5,12 @@ import { AnimatePresence, motion } from 'framer-motion'
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
-    <ThemeProvider attribute="class" defaultTheme="dark">
+    <ThemeProvider 
+      attribute="class" 
+      defaultTheme="dark" 
+      forcedTheme="dark"
+      enableSystem={false}
+    >
       <AnimatePresence>
         <motion.div
           initial={{ opacity: 0, y: 15 }}
@@ -19,4 +24,3 @@ export function Providers({ children }: { children: React.ReactNode }) {
     </ThemeProvider>
   )
 }
-

@@ -1,8 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}"
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
@@ -24,7 +25,20 @@ module.exports = {
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
       },
+      fontFamily: {
+        'sans': ['var(--font-tajawal)', 'Tajawal', 'sans-serif'],
+        'arabic': ['var(--font-tajawal)', 'Tajawal', 'sans-serif'],
+        'poppins': ['Poppins', 'sans-serif'],
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwindcss-rtl'), 
+  ],
+  variants: {
+    extend: {
+      textAlign: ['rtl'],
+      flexDirection: ['rtl'],
+    },
+  },
 }

@@ -1,53 +1,102 @@
-import { Github, Linkedin, Twitter } from 'lucide-react'
+'use client'
+
 import Link from 'next/link'
+import { Github, Linkedin, Twitter } from 'lucide-react'
+
+const socialLinks = [
+  { 
+    icon: Github, 
+    href: '#',
+    label: 'جيتهب'
+  },
+  { 
+    icon: Linkedin, 
+    href: '#',
+    label: 'لينكد إن'
+  },
+  { 
+    icon: Twitter, 
+    href: '#',
+    label: 'تويتر'
+  }
+]
+
+const footerLinks = [
+  {
+    title: 'الروابط الرئيسية',
+    links: [
+      { name: 'الرئيسية', href: '#home' },
+      { name: 'المميزات', href: '#features' },
+      { name: 'المشاريع', href: '#projects' },
+      { name: 'الفريق', href: '#team' }
+    ]
+  },
+  {
+    title: 'خدماتنا',
+    links: [
+      { name: 'تطوير الويب', href: '#' },
+      { name: 'تطوير الموبايل', href: '#' },
+      { name: 'أمن المعلومات', href: '#' },
+      { name: 'استشارات تقنية', href: '#' }
+    ]
+  },
+  {
+    title: 'التواصل',
+    links: [
+      { name: 'البريد الإلكتروني', href: 'mailto:info@devgenius.com' },
+      { name: 'الهاتف', href: 'tel:+966500000000' },
+      { name: 'العنوان', href: '#' }
+    ]
+  }
+]
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-300 py-12">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div>
-            <h3 className="text-lg font-semibold mb-4 font-poppins">DevGenius</h3>
-            <p className="text-sm">Innovating the future of software development, one line of code at a time.</p>
-          </div>
-          <div>
-            <h4 className="text-lg font-semibold mb-4 font-poppins">Services</h4>
-            <ul className="space-y-2">
-              <li><Link href="#" className="hover:text-white transition-colors">Web Development</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Mobile Apps</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Cloud Solutions</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">AI & Machine Learning</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-lg font-semibold mb-4 font-poppins">Company</h4>
-            <ul className="space-y-2">
-              <li><Link href="#" className="hover:text-white transition-colors">About Us</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Careers</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Blog</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Contact</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-lg font-semibold mb-4 font-poppins">Connect</h4>
-            <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Twitter className="h-6 w-6" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Linkedin className="h-6 w-6" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Github className="h-6 w-6" />
-              </a>
-            </div>
+    <footer className="bg-gray-900 text-white py-16 px-4" dir="rtl">
+      <div className="container mx-auto grid md:grid-cols-4 gap-8">
+        <div className="md:col-span-1">
+          <h3 className="text-2xl font-bold mb-4">DevGenius</h3>
+          <p className="text-gray-400 mb-4">
+            نقدم حلولًا برمجية متطورة لتحويل أفكارك الرقمية إلى واقع ملموس.
+          </p>
+          <div className="flex space-x-reverse space-x-4">
+            {socialLinks.map((social, index) => (
+              <Link 
+                key={index} 
+                href={social.href} 
+                className="text-gray-400 hover:text-white"
+                aria-label={social.label}
+              >
+                <social.icon className="h-6 w-6" />
+              </Link>
+            ))}
           </div>
         </div>
-        <div className="mt-8 pt-8 border-t border-gray-800 text-sm text-center">
-          <p>&copy; {new Date().getFullYear()} DevGenius. All rights reserved.</p>
-        </div>
+
+        {footerLinks.map((section, index) => (
+          <div key={index} className="md:col-span-1">
+            <h4 className="text-lg font-semibold mb-4">{section.title}</h4>
+            <ul className="space-y-2">
+              {section.links.map((link, linkIndex) => (
+                <li key={linkIndex}>
+                  <Link 
+                    href={link.href} 
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+      
+      <div className="container mx-auto mt-8 pt-8 border-t border-gray-800 text-center">
+        <p className="text-gray-400">
+          © {new Date().getFullYear()} DevGenius. جميع الحقوق محفوظة.
+        </p>
       </div>
     </footer>
   )
 }
-

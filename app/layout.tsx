@@ -1,14 +1,21 @@
+import type { Metadata } from 'next'
+import { Tajawal } from 'next/font/google'
 import './globals.css'
-import { Inter, Poppins } from 'next/font/google'
 import { Providers } from './providers'
+import Navbar from './components/Navbar'
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
-const poppins = Poppins({ weight: ['400', '600', '700'], subsets: ['latin'], variable: '--font-poppins' })
+// Configure Arabic font
+const tajawal = Tajawal({ 
+  weight: ['300', '400', '500', '700'],
+  subsets: ['arabic'],
+  display: 'swap',
+  variable: '--font-tajawal'
+})
 
-export const metadata = {
-  title: 'DevGenius - Cutting-Edge Software Solutions',
-  description: 'We craft innovative, high-performance software solutions that propel businesses into the future.',
-  keywords: ['software development', 'web applications', 'mobile apps', 'AI solutions', 'cloud computing'],
+export const metadata: Metadata = {
+  title: 'DevGenius - شركة برمجيات متطورة',
+  description: 'حلول برمجية متكاملة لتحويل أفكارك الرقمية إلى واقع',
+  keywords: ['تطوير برمجيات', 'تطبيقات الويب', 'تطبيقات الموبايل', 'حلول الذكاء الاصطناعي']
 }
 
 export default function RootLayout({
@@ -17,11 +24,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
-      <body className={inter.className}>
-        <Providers>{children}</Providers>
+    <html lang="ar" dir="rtl">
+      <body className={`${tajawal.variable} font-sans bg-gray-900 text-white`}>
+        <Providers>
+          <Navbar />
+          {children}
+        </Providers>
       </body>
     </html>
   )
 }
-
