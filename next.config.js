@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'standalone', // Ensure standalone build
   images: {
     domains: ['images.unsplash.com', 'unsplash.com'],
     remotePatterns: [
@@ -16,6 +17,19 @@ const nextConfig = {
         pathname: '/photos/**',
       },
     ],
+  },
+  async headers() {
+    return [
+      {
+        source: '/_next/static/chunks/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+    ]
   },
 }
 
