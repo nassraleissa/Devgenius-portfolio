@@ -6,8 +6,14 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './src/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/components/Team.tsx',
+    './app/components/Projects.tsx',
+    './app/components/Features.tsx',
+    './app/components/Hero.tsx',
+    './app/components/Navbar.tsx',
+    './app/components/CTA.tsx',
+    './app/components/Testimonials.tsx',
   ],
   theme: {
     container: {
@@ -76,6 +82,19 @@ module.exports = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+      },
+      maxWidth: {
+        '6xl': '72rem',
+      },
+      screens: {
+        'md': '768px',
+        'lg': '1024px',
+      },
+      spacing: {
+        '4': '1rem',
+        '12': '3rem',
+        '16': '4rem',
+        '24': '6rem',
       },
     },
   },
