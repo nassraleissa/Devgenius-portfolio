@@ -27,7 +27,7 @@ const teamMembers = [
 export default function Team() {
   return (
     <section id="team" className="px-4 py-16 md:py-24 bg-gray-900" dir="rtl">
-      <div className="container mx-auto text-center">
+      <div className="container mx-auto text-center max-w-6xl">
         <motion.h2 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -37,7 +37,7 @@ export default function Team() {
           فريقنا
         </motion.h2>
         
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8">
           {teamMembers.map((member, index) => (
             <motion.div
               key={index}
